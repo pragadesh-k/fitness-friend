@@ -1,38 +1,156 @@
-.App {
-  text-align: center;
+#root {
+  font-family: "Quicksand", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input[type="button"] {
+  background-color: #2cbf6a;
+  border: #2cbf6a;
+  border-radius: 0px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: small;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type="button"]:hover,
+input[type="button"]:focus {
+  background-color: #1cb25b;
+}
+/* HEADER */
+
+#project-title {
+  font-size: x-large;
+  font-weight: 1000;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+}
+
+#left-face {
+  background-color: #ffffff00;
+  color: #2cbf6a;
+}
+
+/* #right-face {
+  background-color: white;
+  color: #2cbf6a;
+} */
+
+/* SIDEBAR */
+#sidenav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  overflow-y: scroll;
+  background-color: #0f0f2c;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#sidenav-sticky {
+  position: sticky;
+  top: 77.6px;
+  height: calc(100vh - 77.6px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
+
+.nav-link:hover {
+  color: #2cbf6a;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link > svg > path {
+  stroke: currentColor;
+}
+
+/* MAIN */
+/* Health-calculator */
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2cbf6a;
+}
+
+/* TRACKER */
+.calorie-bucket {
+  font-size: 1.8rem;
+}
+
+.accordion-button {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+}
+
+.accordion-header > button {
+  color: #0f0f2c;
+  font-weight: 600;
+}
+
+.accordion-body {
+  height: 180px;
+  min-height: 150px;
+  overflow-y: scroll;
+}
+
+.list-group-item {
+  padding-left: 0;
+  padding: 0.5rem;
+}
+
+button {
+  border-radius: 0px !important;
+  text-transform: uppercase !important;
+}
+.result > div > span {
+  font-size: 1.2rem;
+}
+
+.result-item {
+  border-left: 5px solid #2cbf6a !important;
+}
+
+.card {
+  border-radius: 0px !important;
+}
+
+.food-item {
+  border-left: 3px solid #2cbf6a !important;
+  text-transform: capitalize;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.food-item:hover,
+.result-item:hover {
+  transform: scale(1.005);
+  transition: 0.3s;
+  background-color: #0f0f2c !important;
+  color: white;
+}
+
+.delete-icon:hover {
+  color: rgba(252, 10, 10, 0.6) !important;
+  cursor: pointer;
+}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@500&display=swap");
