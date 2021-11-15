@@ -77,7 +77,7 @@ class CalorieForm extends Component {
                 textTransform: "capitalize",
                 fontWeight: "600",
               }}>
-              Set Target Calorie
+              Daily calorie Target.
             </Form.Label>
             <Form.Control
               name="calorie"

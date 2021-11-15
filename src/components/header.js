@@ -12,7 +12,7 @@ const Header = (props) => {
         <div id="project-title" className="mx-auto">
           <SiDeepnote
             color="#2cbf6a"
-            style={{ marginRight: "1rem", verticalAlign: "text-top" }}
+            style={{ marginRight: ".5rem", verticalAlign: "text-top" }}
           />
           <span>fitness friend</span>
         </div>

@@ -1,5 +1,5 @@
 import { Nav, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { GrAppsRounded, GrMonitor, GrCalculator } from "react-icons/gr";
 import { IoFitnessSharp } from "react-icons/io5";
 import { IconContext } from "react-icons";
@@ -27,16 +27,16 @@ const sidenav = () => {
               </Link>
             </NavItem> */}
             <NavItem>
-              <Link className="nav-link" to="/">
+              <NavLink className="nav-link" to="/">
                 <GrCalculator />
                 Health Calculator
-              </Link>
+              </NavLink>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="/tracker">
+              <NavLink className="nav-link" to="/tracker">
                 <IoFitnessSharp size="1.2rem" />
                 Tracker
-              </Link>
+              </NavLink>
             </NavItem>
           </Nav>
         </div>
