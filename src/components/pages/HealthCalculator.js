@@ -133,7 +133,8 @@ class UserForm extends Component {
     });
   };
 
-  submitForm = () => {
+  submitForm = (event) => {
+    event.preventDefault();
     const result = this.fitnessCalculation();
     this.props.handleSubmit(result, this.state.goal);
     this.setState(this.initialState);
@@ -183,7 +184,7 @@ class UserForm extends Component {
     } = this.state;
 
     return (
-      <Form style={style.form}>
+      <Form style={style.form} onSubmit={this.submitForm}>
         {/* 1st Row */}
         <Row className="mb-5">
           <Col>
@@ -275,9 +276,8 @@ class UserForm extends Component {
             className="mx-auto"
             style={style.button}
             as="input"
-            type="button"
+            type="submit"
             value="CALCULATE"
-            onClick={this.submitForm}
           />
         </div>
       </Form>

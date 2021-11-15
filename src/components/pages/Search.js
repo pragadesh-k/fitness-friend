@@ -24,7 +24,8 @@ class Search extends Component {
     this.setState({ [name]: value });
   };
 
-  submitForm = () => {
+  submitForm = (event) => {
+    event.preventDefault();
     this.props.handleSearch(this.state.searchitem);
     this.setState(this.inititalState); // clear field
   };
@@ -54,7 +55,7 @@ class Search extends Component {
 const SearchBar = (props) => {
   return (
     <Navbar className="bg-light" style={{ marginTop: "1rem" }}>
-      <Form className="form-inline mx-auto">
+      <Form className="form-inline mx-auto" onSubmit={props.submitForm}>
         <FormControl
           name="searchitem"
           type="text"
@@ -63,7 +64,7 @@ const SearchBar = (props) => {
           value={props.value}
           onChange={props.handleChange}
         />
-        <Button onClick={props.submitForm} variant="success">
+        <Button variant="success" type="submit">
           search <FaSearch />
         </Button>
       </Form>

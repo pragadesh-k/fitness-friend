@@ -2,7 +2,7 @@
   font-family: "Quicksand", sans-serif;
 }
 
-input[type="button"] {
+/* input[type="button"] {
   background-color: #2cbf6a;
   border: #2cbf6a;
   border-radius: 0px;
@@ -10,7 +10,7 @@ input[type="button"] {
   text-transform: uppercase;
   font-weight: 700;
   font-size: small;
-}
+} */
 
 input[type="button"]:hover,
 input[type="button"]:focus {
@@ -50,7 +50,11 @@ input[type="button"]:focus {
   z-index: 100;
   overflow-y: scroll;
   background-color: #0f0f2c;
+}
+
+#side-heading {
   color: white;
+  text-transform: uppercase;
 }
 
 #sidenav-sticky {
@@ -79,6 +83,10 @@ input[type="button"]:focus {
 
 .nav-link > svg > path {
   stroke: currentColor;
+}
+
+.active {
+  color: #2cbf6a;
 }
 
 /* MAIN */

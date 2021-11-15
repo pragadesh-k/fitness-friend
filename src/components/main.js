@@ -9,8 +9,9 @@ const main = (props) => {
     <main className="col-sm-9 col-lg-10 px-4 ml-sm-auto py-3" id="main">
       <Routes>
         {/* <Route path="/" element={<Dashboard />} /> */}
+        <Route path="/" element={<HealthCalculator />} />
         <Route
-          path="/"
+          path="/tracker"
           element={
             <Tracker
               calorieReached={props.calorieReached}
@@ -26,7 +27,6 @@ const main = (props) => {
             />
           }
         />
-        <Route path="/health-calculator" element={<HealthCalculator />} />
         <Route
           path="/search-item"
           element={

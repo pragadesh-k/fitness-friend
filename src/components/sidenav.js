@@ -16,7 +16,9 @@ const sidenav = () => {
         defaultActiveKey="/home"
         className="flex-column col-sm-3 col-lg-2 p-0">
         <div id="sidenav-sticky">
-          <h6 className="px-3 mt-3">Menu</h6>
+          <h6 id="side-heading" className="px-3 mt-3">
+            Menu
+          </h6>
           <Nav as="ul" className="flex-column">
             {/* <NavItem>
               <Link className="nav-link" to="/">
@@ -26,14 +28,14 @@ const sidenav = () => {
             </NavItem> */}
             <NavItem>
               <Link className="nav-link" to="/">
-                <IoFitnessSharp size="1.2rem" />
-                Tracker
+                <GrCalculator />
+                Health Calculator
               </Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="/health-calculator">
-                <GrCalculator />
-                Health Calculator
+              <Link className="nav-link" to="/tracker">
+                <IoFitnessSharp size="1.2rem" />
+                Tracker
               </Link>
             </NavItem>
           </Nav>
