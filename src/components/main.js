@@ -6,7 +6,7 @@ import Tracker from "./pages/Tracker";
 
 const main = (props) => {
   return (
-    <main className="col-sm-9 col-lg-10 px-4 ml-sm-auto py-3" id="main">
+    <main className="col-sm-9 col-lg-10 ml-sm-auto px-lg-4 py-lg-3" id="main">
       <Routes>
         {/* <Route path="/" element={<Dashboard />} /> */}
         <Route path="/" element={<HealthCalculator />} />

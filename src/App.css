@@ -27,7 +27,6 @@ input[type="button"]:focus {
   font-size: small !important;
   padding: 1rem 3rem 1rem 3rem !important;
   color: white !important;
-  width: 16rem;
 }
 
 .submit-btn:hover {
@@ -109,6 +108,10 @@ input[type="button"]:focus {
 /* MAIN */
 /* Health-calculator */
 
+#calculator-content {
+  padding: 2rem;
+}
+
 .title {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
@@ -179,3 +182,40 @@ button {
   cursor: pointer;
 }
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@500&display=swap");
+
+@media screen and (max-width: 991.98px) {
+  #main {
+    padding: 0px;
+  }
+}
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  #sidenav {
+    position: relative;
+  }
+
+  #sidenav-sticky {
+    height: auto;
+  }
+
+  #calculator-content {
+    padding: 0;
+  }
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

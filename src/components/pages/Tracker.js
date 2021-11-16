@@ -38,7 +38,7 @@ class Tracker extends Component {
 
   render() {
     return (
-      <Container className="bg-light" style={style.container}>
+      <Container className="bg-light mt-md-3" style={style.container}>
         <div className="tracker-content p-4">
           {this.renderTrackerComponent()}
         </div>
@@ -82,7 +82,7 @@ class CalorieForm extends Component {
             <Form.Control
               name="calorie"
               type="number"
-              placeholder="Enter daily target calorie.."
+              placeholder="Enter calorie target.."
               min="1"
               value={calorie}
               onChange={this.handleChange}
@@ -256,7 +256,6 @@ const style = {
   },
 
   container: {
-    marginTop: "1rem",
     boxShadow: "0 0 10px 10px rgba(0, 0, 0, 0.1)",
     height: "630px",
     minHeight: "630px",

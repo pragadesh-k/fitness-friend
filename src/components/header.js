@@ -5,7 +5,9 @@ import { BsFillCloudSunFill } from "react-icons/bs";
 const Header = (props) => {
   return (
     <Navbar id="header" className="p-0 align-items-stretch">
-      <NavbarBrand className="col-sm-3 col-lg-2 mr-0 p-4" id="left-face">
+      <NavbarBrand
+        className="col col-sm-3 col-lg-2 d-none d-sm-block mr-0 p-4"
+        id="left-face">
         {/* <SiDeepnote color="#2cbf6a" /> Fitness Friend */}
       </NavbarBrand>
       <Col className="p-4 d-flex" id="right-face">

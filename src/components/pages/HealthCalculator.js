@@ -13,8 +13,6 @@ import {
   ListGroupItem,
 } from "react-bootstrap";
 
-import "../../styles/HealthCalculator.css";
-
 // TOP level component
 class HealthCalculator extends Component {
   // .. STATE
@@ -39,7 +37,7 @@ class HealthCalculator extends Component {
   // .. RENDERING
   render() {
     return (
-      <Container style={style.container} className="bg-light">
+      <Container style={style.container} className="bg-light mt-md-3">
         <div id="calculator-content">
           <Heading />
           <UserForm handleSubmit={this.handleSubmit} />
@@ -186,7 +184,7 @@ class UserForm extends Component {
     return (
       <Form style={style.form} onSubmit={this.submitForm}>
         {/* 1st Row */}
-        <Row className="mb-5">
+        <Row className="mb-5 field-row">
           <Col>
             <FormGroup controlId="formBasicNumber">
               <FormLabel style={style.label}>gender</FormLabel>
@@ -215,7 +213,7 @@ class UserForm extends Component {
         </Row>
 
         {/* 2nd Row */}
-        <Row className="mb-5">
+        <Row className="mb-5 field-row">
           <Col>
             <FormGroup controlId="formBasicNumber">
               <FormLabel style={style.label}>height</FormLabel>
@@ -243,7 +241,7 @@ class UserForm extends Component {
         </Row>
 
         {/* 3rd row */}
-        <Row className="mb-5">
+        <Row className="mb-5 field-row">
           <Col>
             <FormGroup controlId="formBasicNumber">
               <FormLabel style={style.label}>activity</FormLabel>
@@ -294,7 +292,6 @@ const style = {
 
   container: {
     border: ".15rem solid #ececec",
-    marginTop: "1rem",
     boxShadow: "0 0 10px 10px rgba(0, 0, 0, 0.1)",
   },
 
