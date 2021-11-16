@@ -54,7 +54,7 @@ class HealthCalculator extends Component {
 const Heading = (props) => {
   return (
     <h3 className="title" style={style.heading}>
-      calculate your fitness
+      calculate your Calorie Target.
     </h3>
   );
 };
@@ -272,13 +272,9 @@ class UserForm extends Component {
           </Col>
         </Row>
         <div className="d-flex w-100">
-          <Button
-            className="mx-auto"
-            style={style.button}
-            as="input"
-            type="submit"
-            value="CALCULATE"
-          />
+          <Button className="mx-auto submit-btn" type="submit">
+            calculate
+          </Button>
         </div>
       </Form>
     );
@@ -295,10 +291,7 @@ const style = {
     borderBottom: "2px solid rgba(0,0,0,0.2)",
     backgroundColor: "transparent",
   },
-  button: {
-    padding: "1rem 3rem 1rem 3rem",
-    width: "16rem",
-  },
+
   container: {
     border: ".15rem solid #ececec",
     marginTop: "1rem",

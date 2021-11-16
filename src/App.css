@@ -12,9 +12,26 @@
   font-size: small;
 } */
 
-input[type="button"]:hover,
+/* input[type="button"]:hover,
 input[type="button"]:focus {
   background-color: #1cb25b;
+} */
+
+.submit-btn {
+  background-color: #2cbf6a !important;
+  border: #2cbf6a !important;
+  border-radius: 0px !important;
+  letter-spacing: 6px;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  font-size: small !important;
+  padding: 1rem 3rem 1rem 3rem !important;
+  color: white !important;
+  width: 16rem;
+}
+
+.submit-btn:hover {
+  background-color: #20b35d !important;
 }
 /* HEADER */
 
@@ -36,10 +53,10 @@ input[type="button"]:focus {
   color: #2cbf6a;
 }
 
-/* #right-face {
-  background-color: #0f0f2c;
-  color: #2cbf6a;
-} */
+#right-face {
+  background-color: white;
+  /* box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2); */
+}
 
 /* SIDEBAR */
 #sidenav {

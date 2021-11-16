@@ -49,7 +49,7 @@ class Tracker extends Component {
 
 class CalorieForm extends Component {
   state = {
-    calorie: 1,
+    calorie: "",
   };
 
   handleChange = (event) => {
@@ -82,12 +82,12 @@ class CalorieForm extends Component {
             <Form.Control
               name="calorie"
               type="number"
-              placeholder="Enter calorie range.."
+              placeholder="Enter daily target calorie.."
               min="1"
               value={calorie}
               onChange={this.handleChange}
             />
-            <Button className="mt-3" variant="success" type="submit">
+            <Button className="mt-3 submit-btn" variant="success" type="submit">
               Submit
             </Button>
             <Form.Text className="text-muted">
@@ -110,7 +110,7 @@ const CalorieBucket = (props) => {
 
 const FoodTracker = (props) => {
   return (
-    <Accordion defaultActiveKey="0" style={style.accordion}>
+    <Accordion style={style.accordion}>
       <Card className="bg-light meal-card">
         <Accordion.Item eventKey="0">
           <Card.Header className="d-flex justify-content-between">
@@ -238,7 +238,15 @@ const MealList = (props) => {
       </ListGroupItem>
     );
   });
-  return <ListGroup className="list-group-flush">{list}</ListGroup>;
+
+  const noItem = (
+    <div className="text-muted text-center my-auto">"No Items"</div>
+  );
+  return (
+    <ListGroup className="list-group-flush">
+      {list.length !== 0 ? list : noItem}
+    </ListGroup>
+  );
 };
 
 const style = {
