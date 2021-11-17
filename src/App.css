@@ -29,7 +29,8 @@ input[type="button"]:focus {
   color: white !important;
 }
 
-.submit-btn:hover {
+.submit-btn:hover,
+.default-btn:hover {
   background-color: #20b35d !important;
 }
 /* HEADER */
@@ -181,6 +182,20 @@ button {
   color: rgba(252, 10, 10, 0.6) !important;
   cursor: pointer;
 }
+
+.default-btn {
+  background-color: #2cbf6a !important;
+  border: #2cbf6a !important;
+  border-radius: 0px !important;
+  letter-spacing: 6px;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  font-size: small !important;
+  padding: 1rem 3rem 1rem 3rem !important;
+  color: white !important;
+}
+
+/* botton section of css file */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Quicksand:wght@500&display=swap");
 
 @media screen and (max-width: 991.98px) {
