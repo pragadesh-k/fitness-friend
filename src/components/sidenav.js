@@ -1,8 +1,9 @@
 import { Nav, NavItem } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
-import { GrAppsRounded, GrMonitor, GrCalculator } from "react-icons/gr";
+import { NavLink } from "react-router-dom";
+import { GrCalculator } from "react-icons/gr";
 import { IoFitnessSharp } from "react-icons/io5";
 import { IconContext } from "react-icons";
+// Icons GrAppsRounded, GrMonitor
 
 const sidenav = () => {
   return (
@@ -11,10 +12,7 @@ const sidenav = () => {
         size: "1rem",
         style: { fill: "currentcolor", marginRight: ".5rem" },
       }}>
-      <div
-        id="sidenav"
-        defaultActiveKey="/home"
-        className="flex-column col-sm-3 col-lg-2 p-0">
+      <div id="sidenav" className="flex-column col-sm-3 col-lg-2 p-0">
         <div id="sidenav-sticky">
           <h6 id="side-heading" className="px-3 mt-3">
             Menu

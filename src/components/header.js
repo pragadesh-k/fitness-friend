@@ -1,6 +1,6 @@
 import { Col, Navbar, NavbarBrand } from "react-bootstrap";
 import { SiDeepnote } from "react-icons/si";
-import { BsFillCloudSunFill } from "react-icons/bs";
+// import { BsFillCloudSunFill } from "react-icons/bs";
 
 const Header = (props) => {
   return (

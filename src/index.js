@@ -1,5 +1,6 @@
 import ReactDom from "react-dom";
-import { BrowserRouter, HashRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+// BrowserRouter
 
 import App from "./App";
 

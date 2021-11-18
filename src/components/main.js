@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import Dashboard from "./pages/Dashboard";
+// import Dashboard from "./pages/Dashboard";
 import HealthCalculator from "./pages/HealthCalculator";
 import Search from "./pages/Search";
 import Tracker from "./pages/Tracker";

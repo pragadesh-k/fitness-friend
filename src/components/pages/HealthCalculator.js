@@ -178,8 +178,8 @@ class UserForm extends Component {
 
     const result = [
       bmiResult,
-      bmrResult,
-      calorieNeedsResult[goal],
+      parseInt(bmrResult),
+      parseInt(calorieNeedsResult[goal]),
       macroResult,
     ];
 
