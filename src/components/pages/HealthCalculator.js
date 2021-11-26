@@ -55,9 +55,9 @@ class HealthCalculator extends Component {
 // COMPONENTS
 const Heading = (props) => {
   return (
-    <h3 className="title" style={style.heading}>
+    <h4 className="title" style={style.heading}>
       calculate your Calorie Target.
-    </h3>
+    </h4>
   );
 };
 
@@ -83,19 +83,19 @@ const Result = (props) => {
     <div>
       <ListGroup className="result my-4">
         <ListGroup.Item style={style.listItem} className="result-item">
-          <div className="d-inline title">BMI : </div>
+          <div className="d-inline title sub-title">BMI : </div>
           <span> {bmi}</span>
         </ListGroup.Item>
         <ListGroup.Item style={style.listItem} className="result-item">
-          <div className="d-inline title">BMR : </div>
+          <div className="d-inline title sub-title">BMR : </div>
           <span> {bmr} Kcal</span>
         </ListGroup.Item>
         <ListGroup.Item style={style.listItem} className="result-item">
-          <div className="d-inline title">Target Calories : </div>
+          <div className="d-inline title sub-title">Target Calories : </div>
           <span> {calorieneeds} Kcal</span>
         </ListGroup.Item>
         <ListGroup.Item style={style.listItem} className="result-item">
-          <div className="title">Target Macros</div>
+          <div className="title sub-title">Target Macros</div>
           <ul className="mt-2">
             <li className="mb-1">Carbohydrate : {macrosCal.carb}g</li>
             <li className="mb-1">Protein : {macrosCal.protein}g</li>

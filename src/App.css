@@ -5,11 +5,11 @@
 .submit-btn {
   background-color: var(--primary-color) !important;
   border: var(--primary-color) !important;
-  border-radius: 0px !important;
+  border-radius: 2px !important;
   letter-spacing: 6px;
   text-transform: uppercase !important;
   font-weight: 700 !important;
-  font-size: small !important;
+  font-size: 1em !important;
   padding: 1rem 3rem 1rem 3rem !important;
   color: white !important;
 }
@@ -21,10 +21,10 @@
 /* HEADER */
 
 #project-title {
-  font-size: x-large;
   font-weight: 1000;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
 }
 
 #header {
@@ -103,12 +103,17 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--primary-color);
+  font-size: 1.4em;
+}
+
+.sub-title {
+  font-size: 1.4em;
 }
 
 /* TRACKER */
-.calorie-bucket {
+/* .calorie-bucket {
   font-size: 1.8rem;
-}
+} */
 
 .accordion-button {
   border: 0;
@@ -132,12 +137,8 @@
   padding: 0.5rem;
 }
 
-button {
-  border-radius: 0px !important;
-  text-transform: uppercase !important;
-}
 .result > div > span {
-  font-size: 1.2rem;
+  font-size: 1.2em;
 }
 
 .result-item {
@@ -170,11 +171,11 @@ button {
 .default-btn {
   background-color: var(--primary-color) !important;
   border: var(--primary-color) !important;
-  border-radius: 0px !important;
+  border-radius: 2px !important;
   letter-spacing: 6px;
   text-transform: uppercase !important;
   font-weight: 700 !important;
-  font-size: small !important;
+  font-size: 1em !important;
   padding: 1rem 3rem 1rem 3rem !important;
   color: white !important;
 }
@@ -200,6 +201,10 @@ button {
 
   #calculator-content {
     padding: 0;
+  }
+
+  html {
+    font-size: 10px;
   }
 }
 

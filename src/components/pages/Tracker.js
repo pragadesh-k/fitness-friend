@@ -73,7 +73,7 @@ class CalorieForm extends Component {
             <Form.Label
               className="text-success"
               style={{
-                fontSize: "1.2rem",
+                // fontSize: "1.2rem",
                 textTransform: "capitalize",
                 fontWeight: "600",
               }}>
