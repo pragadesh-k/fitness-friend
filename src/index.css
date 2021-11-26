@@ -3,8 +3,10 @@
 }
 
 :root {
-  --nav-item-color: #898c93;
-  --nav-item-hover-color: #2cbf6a;
+  --primary-color: #2cbf6a;
+  --secondary-color: #0f0f2c;
+  --btn-hvr-secondary-color: #0f0f2c;
+  --btn-hvr-del-color: rgba(252, 10, 10, 0.6);
 }
 
 html,
