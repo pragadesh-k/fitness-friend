@@ -1,11 +1,18 @@
 import React, { Component } from "react";
-import Header from "./components/header";
-import SideNav from "./components/sidenav";
-import Main from "./components/main";
+// import Header from "./components/header";
+// import SideNav from "./components/sidenav";
+// import Main from "./components/main";
 import data from "./data.json";
 
-import "./App.css";
-import { Container, Row } from "react-bootstrap";
+// import { Container, Row } from "react-bootstrap";
+import LoginPage from "./components/pages/Login";
+import Dashboard from "./components/pages/Dashboard";
+import { Routes, Route, Redirect, Navigate } from "react-router-dom";
+import Tracker from "./components/pages/Tracker";
+import HealthCalculator from "./components/pages/HealthCalculator";
+import Search from "./components/pages/Search";
+import NoPage from "./components/pages/NoPage";
+import SignUp from "./components/pages/SignUp";
 
 class App extends Component {
   state = {
@@ -27,7 +34,20 @@ class App extends Component {
     //   .then((response) => response.json())
     //   .then((data) => this.setState({ data: data }));
     this.setState({ data: data });
+    console.log(data);
   }
+
+  authenticate = (username, password) => {
+    // fetch the users
+    // authenticate
+    // return true or false
+  };
+
+  createUser = (username, passsword) => {
+    // check the user is exist
+    // if not, create a new user and return true
+    // else return false
+  };
 
   // Funtion to handle the food search
   handleSearch = (searchItem) => {
@@ -85,31 +105,64 @@ class App extends Component {
       dinner,
       userselectedmealtype,
     } = this.state;
-
+    const logo = <img src="logo192.png" height="80px" />;
+    const appName = (
+      <h1 className="app-name mt-2">
+        <span className="logo-f">F</span>itness{" "}
+        <span className="logo-f">F</span>riend
+      </h1>
+    );
     return (
       <>
-        <Header />
-        <Container fluid>
-          <Row>
-            <SideNav />
-            <Main
-              calorieReached={caloriereached}
-              calorieGoal={caloriegoal}
-              searchResult={searchresult}
-              handleSearch={this.handleSearch}
-              breakFast={breakfast}
-              morningSnack={morningsnack}
-              lunch={lunch}
-              eveningSnack={eveningsnack}
-              dinner={dinner}
-              handleMeal={this.handleMeal}
-              handleMealType={this.handleMealType}
-              userSelectedMealType={userselectedmealtype}
-              handleDelete={this.handleDelete}
-              setCalorieGoal={this.setCalorieGoal}
-            />
-          </Row>
-        </Container>
+        <Routes>
+          <Route path="/" element={<Navigate to="login" replace />} />
+          <Route
+            path="login"
+            element={
+              <LoginPage
+                logo={logo}
+                appName={appName}
+                authenticate={this.authenticate}
+              />
+            }></Route>
+          <Route
+            path="sign-up"
+            element={<SignUp logo={logo} appName={appName} />}></Route>
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route
+              path="tracker"
+              element={
+                <Tracker
+                  calorieReached={caloriereached}
+                  calorieGoal={caloriegoal}
+                  breakFast={breakfast}
+                  morningSnack={morningsnack}
+                  lunch={lunch}
+                  eveningSnack={eveningsnack}
+                  dinner={dinner}
+                  handleMealType={this.handleMealType}
+                  handleDelete={this.handleDelete}
+                  setCalorieGoal={this.setCalorieGoal}
+                />
+              }></Route>
+            <Route
+              path="health-calculator"
+              element={
+                <HealthCalculator setCalorieGoal={this.setCalorieGoal} />
+              }></Route>
+            <Route
+              path="search-item"
+              element={
+                <Search
+                  searchResult={searchresult}
+                  handleSearch={this.handleSearch}
+                  handleMeal={this.handleMeal}
+                  userSelectedMealType={userselectedmealtype}
+                />
+              }></Route>
+          </Route>
+          <Route path="*" element={<NoPage />} />
+        </Routes>
       </>
     );
   }

@@ -2,6 +2,56 @@
   font-family: "Quicksand", sans-serif;
 }
 
+/* Login page */
+.login-content {
+  width: 400px;
+}
+
+.app-name {
+  color: #818181;
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+}
+
+.logo-f {
+  color: #7fd858;
+  text-transform: uppercase;
+}
+
+.auth-page-field {
+  height: 45px;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+}
+.fill-btn {
+  padding: 0.5rem 0;
+  background-color: #7fd858;
+  outline: 0;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 0.85rem;
+}
+
+.stroke {
+  background-color: #ffffff;
+  color: #7fd858;
+  border: 1px solid #7fd858;
+}
+
+.stroke-btn {
+  background-color: #ffffff;
+  color: #7fd858;
+  border: 1px solid #7fd858;
+  text-decoration: none;
+}
+.stroke-btn:hover {
+  text-decoration: none;
+  background-color: #7fd858;
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+
 .submit-btn {
   background-color: var(--primary-color) !important;
   border: var(--primary-color) !important;
@@ -89,6 +139,11 @@
 
 .active {
   color: var(--primary-color);
+}
+
+.text-btn {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* MAIN */

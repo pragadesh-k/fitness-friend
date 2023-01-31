@@ -217,7 +217,7 @@ const FoodTracker = (props) => {
 const Add = (props) => {
   return (
     <div className="d-flex justify-content-center">
-      <Link to="/search-item">
+      <Link to="/dashboard/search-item">
         <Button
           variant="success rounded-circle"
           style={{ backgroundColor: "transparent", border: "0" }}

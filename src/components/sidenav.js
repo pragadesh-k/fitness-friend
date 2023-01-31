@@ -1,8 +1,9 @@
 import { Nav, NavItem } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { GrCalculator } from "react-icons/gr";
-import { IoFitnessSharp } from "react-icons/io5";
+import { IoFitnessSharp, IoLog } from "react-icons/io5";
 import { IconContext } from "react-icons";
+import { BiLogOutCircle } from "react-icons/bi";
 // Icons GrAppsRounded, GrMonitor
 
 const sidenav = () => {
@@ -25,18 +26,21 @@ const sidenav = () => {
               </Link>
             </NavItem> */}
             <NavItem>
-              <NavLink className="nav-link" to="/">
+              <NavLink className="nav-link" to="/dashboard/health-calculator">
                 <GrCalculator />
                 Health Calculator
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="nav-link" to="/tracker">
+              <NavLink className="nav-link" to="/dashboard/tracker">
                 <IoFitnessSharp size="1.2rem" />
                 Tracker
               </NavLink>
             </NavItem>
           </Nav>
+          <Link to="/login" className="text-btn">
+            <BiLogOutCircle size="1.2rem" /> Logout
+          </Link>
         </div>
       </div>
     </IconContext.Provider>
