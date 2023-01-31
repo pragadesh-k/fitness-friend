@@ -27,6 +27,7 @@ class HealthCalculator extends Component {
   };
 
   showResult = () => {
+    // return Result component when length of result array is not empty
     return this.state.result.length !== 0 ? (
       <Result
         result={this.state.result}
@@ -41,7 +42,7 @@ class HealthCalculator extends Component {
   // .. RENDERING
   render() {
     return (
-      <Container style={style.container} className="bg-light mt-md-3">
+      <Container style={style.container} className="mt-md-3">
         <div id="calculator-content">
           <Heading />
           <UserForm handleSubmit={this.handleSubmit} />
@@ -159,13 +160,17 @@ class UserForm extends Component {
 
   // calculation methods
   fitnessCalculation = () => {
+    // object destruction the state for required varibales
     let { gender, age, height, weight, activity, goal } = this.state;
 
+    // Type Casting to integer
     age = parseInt(age);
     height = parseInt(height);
     weight = parseInt(weight);
 
+    // Method call to calculate BMI
     const bmiResult = BMI(height, weight);
+    // Method call to calculate BMR
     const bmrResult = BMR(gender, age, height, weight);
     const calorieNeedsResult = calorieNeeds(
       gender,
@@ -174,8 +179,10 @@ class UserForm extends Component {
       weight,
       activity
     );
+    // Method call to calculate Targeted Macro Nutrients
     var macroResult = macros(gender, age, height, weight, activity, goal);
 
+    // All the calculated values in result array
     const result = [
       bmiResult,
       parseInt(bmrResult),
@@ -188,6 +195,7 @@ class UserForm extends Component {
 
   // ..RENDERING
   render() {
+    // Declaring variables
     const {
       gender,
       age,
@@ -316,8 +324,8 @@ const style = {
   },
 
   container: {
-    border: ".15rem solid #ececec",
-    boxShadow: "0 0 10px 10px rgba(0, 0, 0, 0.1)",
+    // border: ".15rem solid #ececec",
+    // boxShadow: "0 0 10px 10px rgba(0, 0, 0, 0.1)",
   },
 
   form: {
@@ -337,7 +345,8 @@ const style = {
   heading: {
     textTransform: "uppercase",
     marginTop: "1rem",
-    color: "#2cbf6a",
+    color: "#2a2a48",
+    fontWeight: "bold",
   },
 };
 

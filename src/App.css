@@ -6,11 +6,11 @@
   background-color: var(--primary-color) !important;
   border: var(--primary-color) !important;
   border-radius: 2px !important;
-  letter-spacing: 6px;
+  letter-spacing: 2px;
   text-transform: uppercase !important;
   font-weight: 700 !important;
-  font-size: 1em !important;
-  padding: 1rem 3rem 1rem 3rem !important;
+  /* font-size: 1em; */
+  padding: 0.5rem 1rem !important;
   color: white !important;
 }
 
@@ -51,6 +51,7 @@
   z-index: 100;
   overflow-y: scroll;
   background-color: var(--secondary-color);
+  /* color: #2a2a48; */
 }
 
 #side-heading {
@@ -115,12 +116,19 @@
   font-size: 1.8rem;
 } */
 
+.calorie-bucket > span {
+  color: #2a2a48;
+}
+
+.meal-card {
+  border: 2px solid #e9e9f3;
+}
 .accordion-button {
   border: 0;
   outline: 0;
   background-color: transparent;
+  /* background-color: #e9e9f3; */
 }
-
 .accordion-header > button {
   color: var(--secondary-color);
   font-weight: 600;

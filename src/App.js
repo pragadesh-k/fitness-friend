@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./components/header";
 import SideNav from "./components/sidenav";
 import Main from "./components/main";
+import data from "./data.json";
 
 import "./App.css";
 import { Container, Row } from "react-bootstrap";
@@ -22,15 +23,19 @@ class App extends Component {
 
   //MTHODS
   componentDidMount() {
-    fetch("./data.json")
-      .then((response) => response.json())
-      .then((data) => this.setState({ data: data }));
+    // fetch("./data.json")
+    //   .then((response) => response.json())
+    //   .then((data) => this.setState({ data: data }));
+    this.setState({ data: data });
   }
 
+  // Funtion to handle the food search
   handleSearch = (searchItem) => {
+    // Filter food items data for the "search item"
     const result = this.state.data.filter((item, index) => {
       return item.name.includes(searchItem);
     });
+    // update state with the item found
     this.setState({ searchresult: result });
   };
 

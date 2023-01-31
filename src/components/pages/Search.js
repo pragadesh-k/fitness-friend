@@ -34,7 +34,7 @@ class Search extends Component {
     const { searchitem } = this.state;
 
     return (
-      <Container className="mt-3 bg-light" style={style.container}>
+      <Container className="mt-3">
         <div className="search-content">
           <SearchBar
             value={searchitem}
@@ -54,7 +54,7 @@ class Search extends Component {
 
 const SearchBar = (props) => {
   return (
-    <Navbar className="bg-light" style={{ marginTop: "1rem" }}>
+    <Navbar style={{ marginTop: "1rem" }}>
       <Form className="form-inline mx-auto" onSubmit={props.submitForm}>
         <FormControl
           name="searchitem"
@@ -65,7 +65,7 @@ const SearchBar = (props) => {
           onChange={props.handleChange}
         />
         <Button variant="success" type="submit">
-          search <FaSearch />
+          search
         </Button>
       </Form>
     </Navbar>
@@ -127,6 +127,9 @@ const SearchItems = (props) => {
               }>
               Add Item
             </Button>
+            <small className="align-self-center mt-1 text-muted">
+              Item added
+            </small>
           </div>
         </Card.Body>
       </Card>

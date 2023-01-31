@@ -38,7 +38,7 @@ class Tracker extends Component {
 
   render() {
     return (
-      <Container className="bg-light mt-md-3" style={style.container}>
+      <Container className="mt-md-3" style={style.container}>
         <div className="tracker-content p-4">
           {this.renderTrackerComponent()}
         </div>
@@ -103,7 +103,8 @@ class CalorieForm extends Component {
 const CalorieBucket = (props) => {
   return (
     <div className="calorie-bucket title" style={style.calorieBucket}>
-      Today's Calorie : {props.calorieReached} / {props.calorieGoal} KCAL
+      <span>Today's Calorie :</span> {props.calorieReached} /{" "}
+      {props.calorieGoal} KCAL
     </div>
   );
 };
@@ -111,9 +112,11 @@ const CalorieBucket = (props) => {
 const FoodTracker = (props) => {
   return (
     <Accordion style={style.accordion}>
-      <Card className="bg-light meal-card">
+      <Card className="meal-card">
         <Accordion.Item eventKey="0">
-          <Card.Header className="d-flex justify-content-between">
+          <Card.Header
+            style={style.cardHeader}
+            className="d-flex justify-content-between">
             <Accordion.Header as="div" className="my-auto">
               Breakfast
             </Accordion.Header>
@@ -133,7 +136,9 @@ const FoodTracker = (props) => {
 
       <Card className="bg-light meal-card">
         <Accordion.Item eventKey="1">
-          <Card.Header className="d-flex justify-content-between">
+          <Card.Header
+            style={style.cardHeader}
+            className="d-flex justify-content-between">
             <Accordion.Header as="div">Morning Snack</Accordion.Header>
             <Add handleMealType={props.handleMealType} name="morningsnack" />
           </Card.Header>
@@ -150,7 +155,9 @@ const FoodTracker = (props) => {
       </Card>
       <Card className="bg-light meal-card">
         <Accordion.Item eventKey="2">
-          <Card.Header className="d-flex justify-content-between">
+          <Card.Header
+            style={style.cardHeader}
+            className="d-flex justify-content-between">
             <Accordion.Header as="div">Lunch</Accordion.Header>
             <Add handleMealType={props.handleMealType} name="lunch" />
           </Card.Header>
@@ -167,7 +174,9 @@ const FoodTracker = (props) => {
       </Card>
       <Card className="bg-light meal-card">
         <Accordion.Item eventKey="3">
-          <Card.Header className="d-flex justify-content-between">
+          <Card.Header
+            style={style.cardHeader}
+            className="d-flex justify-content-between">
             <Accordion.Header as="div">Evening snack</Accordion.Header>
             <Add handleMealType={props.handleMealType} name="eveningsnack" />
           </Card.Header>
@@ -184,7 +193,9 @@ const FoodTracker = (props) => {
       </Card>
       <Card className="bg-light meal-card">
         <Accordion.Item eventKey="4">
-          <Card.Header className="d-flex justify-content-between meal-header">
+          <Card.Header
+            style={style.cardHeader}
+            className="d-flex justify-content-between meal-header">
             <Accordion.Header as="div">Dinner</Accordion.Header>
             <Add handleMealType={props.handleMealType} name="dinner" />
           </Card.Header>
@@ -250,13 +261,17 @@ const MealList = (props) => {
 };
 
 const style = {
+  cardHeader: {
+    backgroundColor: "white",
+    border: "2px solid #e9e9f3",
+  },
   accordion: {
     marginTop: "2rem",
     borderRadius: "0px",
   },
 
   container: {
-    boxShadow: "0 0 10px 10px rgba(0, 0, 0, 0.1)",
+    // boxShadow: "0 0 10px 10px rgba(0, 0, 0, 0.1)",
     height: "630px",
     minHeight: "630px",
   },
