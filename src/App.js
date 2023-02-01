@@ -26,21 +26,44 @@ class App extends Component {
     lunch: [],
     eveningsnack: [],
     dinner: [],
+    baseUrl: "http://localhost:8000",
   };
 
   //MTHODS
   componentDidMount() {
-    // fetch("./data.json")
+    fetch("http://localhost:8000/food-items")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ data: data });
+        console.log(data);
+      });
+    // fetch("http://localhost:8000/food-items", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     id: 100,
+    //     name: "mutton",
+    //     image: "images/egg.jpg",
+    //     quantity: 200,
+    //     calorie: 155,
+    //     cabohydrate: 1.1,
+    //     protein: 12.6,
+    //     fat: 10.6,
+    //   }),
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8",
+    //   },
+    // })
     //   .then((response) => response.json())
-    //   .then((data) => this.setState({ data: data }));
-    this.setState({ data: data });
-    console.log(data);
+    //   .then((data) => {
+    //     console.log(data);
+    //   });
+    // this.setState({ data: data });
   }
 
-  authenticate = (username, password) => {
-    // fetch the users
-    // authenticate
-    // return true or false
+  authenticate = async (username, password) => {};
+
+  retrieveUser = (username) => {
+    fetch(`${this.state.baseUrl}/users?username=${username}`);
   };
 
   createUser = (username, passsword) => {
