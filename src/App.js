@@ -15,7 +15,7 @@ import NoPage from "./components/pages/NoPage";
 import SignUp from "./components/pages/SignUp";
 
 class App extends Component {
-  state = {
+  initialState = {
     userselectedmealtype: "breakfast",
     data: [],
     caloriegoal: 0,
@@ -27,7 +27,13 @@ class App extends Component {
     eveningsnack: [],
     dinner: [],
     baseUrl: "http://localhost:8000",
+    isAuthSuccess: undefined,
+    currUser: {},
+    currUserProfile: {},
+    isLoggedIn: false,
+    isAccountCreated: undefined,
   };
+  state = this.initialState;
 
   //MTHODS
   componentDidMount() {
@@ -35,41 +41,122 @@ class App extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ data: data });
-        console.log(data);
       });
-    // fetch("http://localhost:8000/food-items", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     id: 100,
-    //     name: "mutton",
-    //     image: "images/egg.jpg",
-    //     quantity: 200,
-    //     calorie: 155,
-    //     cabohydrate: 1.1,
-    //     protein: 12.6,
-    //     fat: 10.6,
-    //   }),
-    //   headers: {
-    //     "Content-type": "application/json; charset=UTF-8",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //   });
-    // this.setState({ data: data });
   }
 
-  authenticate = async (username, password) => {};
+  componentDidUpdate() {
+    if (this.state.isAuthSuccess !== undefined) {
+      setTimeout(() => this.setState({ isAuthSuccess: undefined }), 3000);
+    }
 
-  retrieveUser = (username) => {
-    fetch(`${this.state.baseUrl}/users?username=${username}`);
+    if (this.state.isAccountCreated !== undefined) {
+      setTimeout(() => this.setState({ isAccountCreated: undefined }), 3000);
+    }
+  }
+
+  authenticate = (username, password) => {
+    fetch(`${this.state.baseUrl}/users?username=${username}`)
+      .then((response) => response.json())
+      .then((users) => {
+        let user;
+        if (users.length === 0) {
+          this.setState({ isAuthSuccess: false });
+        } else {
+          user = users[0];
+          if (user.username === username && user.password === password) {
+            // update state with authSuccess with true
+            fetch(`${this.state.baseUrl}/profiles/${user.id}`)
+              .then((res) => res.json())
+              .then((profile) => {
+                this.setState({
+                  isLoggedIn: true,
+                  isAuthSuccess: true,
+                  currUser: user,
+                  caloriegoal: profile.calorieGoal,
+                  caloriereached: profile.calorieReached,
+                  breakfast: profile.breakFast,
+                  morningsnack: profile.morningSnack,
+                  lunch: profile.lunch,
+                  eveningsnack: profile.eveningSnack,
+                  dinner: profile.dinner,
+                });
+              });
+            console.log("navigate to dashboard");
+          }
+        }
+      });
+  };
+
+  logout = () => {
+    // save profile
+    fetch(`${this.state.baseUrl}/profiles/${this.state.currUser.id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        calorieGoal: this.state.caloriegoal,
+        calorieReached: this.state.caloriereached,
+        breakFast: this.state.breakfast,
+        morningSnack: this.state.morningsnack,
+        lunch: this.state.lunch,
+        eveningSnack: this.state.eveningsnack,
+        dinner: this.state.dinner,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((profile) => console.log(profile));
+    this.setState(this.initialState);
   };
 
   createUser = (username, passsword) => {
     // check the user is exist
+    fetch(`${this.state.baseUrl}/users?username=${username}`)
+      .then((res) => res.json())
+      .then((users) => {
+        if (users.length === 0) {
+          fetch(`${this.state.baseUrl}/users`, {
+            method: "POST",
+            body: JSON.stringify({
+              username: username,
+              password: passsword,
+            }),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              this.createUserProfile();
+              this.setState({ isAccountCreated: true });
+              //
+            });
+        } else {
+          this.setState({ isAccountCreated: false });
+        }
+      });
     // if not, create a new user and return true
     // else return false
+  };
+
+  createUserProfile = () => {
+    fetch(`${this.state.baseUrl}/profiles`, {
+      method: "POST",
+      body: JSON.stringify({
+        calorieGoal: 0,
+        calorieReached: 0,
+        breakFast: [],
+        morningSnack: [],
+        lunch: [],
+        eveningSnack: [],
+        dinner: [],
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((profile) => console.log(profile));
   };
 
   // Funtion to handle the food search
@@ -127,6 +214,9 @@ class App extends Component {
       morningsnack,
       dinner,
       userselectedmealtype,
+      isAuthSuccess,
+      isLoggedIn,
+      isAccountCreated,
     } = this.state;
     const logo = <img src="logo192.png" height="80px" />;
     const appName = (
@@ -146,12 +236,22 @@ class App extends Component {
                 logo={logo}
                 appName={appName}
                 authenticate={this.authenticate}
+                isAuthSuccess={isAuthSuccess}
+                setUserProfile={this.setUserProfile}
+                isLoggedIn={isLoggedIn}
               />
             }></Route>
           <Route
             path="sign-up"
-            element={<SignUp logo={logo} appName={appName} />}></Route>
-          <Route path="dashboard" element={<Dashboard />}>
+            element={
+              <SignUp
+                logo={logo}
+                appName={appName}
+                isAccountCreated={isAccountCreated}
+                createUser={this.createUser}
+              />
+            }></Route>
+          <Route path="dashboard" element={<Dashboard logout={this.logout} />}>
             <Route
               path="tracker"
               element={
