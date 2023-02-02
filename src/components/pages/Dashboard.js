@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
         <Header />
         <Container fluid>
           <Row>
-            <SideNav />
+            <SideNav logout={this.props.logout} />
             <main
               className="col-sm-9 col-lg-10 ml-sm-auto px-lg-4 py-lg-3"
               id="main">

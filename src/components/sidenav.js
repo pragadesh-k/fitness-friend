@@ -6,7 +6,7 @@ import { IconContext } from "react-icons";
 import { BiLogOutCircle } from "react-icons/bi";
 // Icons GrAppsRounded, GrMonitor
 
-const sidenav = () => {
+const sidenav = (props) => {
   return (
     <IconContext.Provider
       value={{
@@ -38,7 +38,7 @@ const sidenav = () => {
               </NavLink>
             </NavItem>
           </Nav>
-          <Link to="/login" className="text-btn">
+          <Link to="/login" className="text-btn" onClick={() => props.logout()}>
             <BiLogOutCircle size="1.2rem" /> Logout
           </Link>
         </div>
