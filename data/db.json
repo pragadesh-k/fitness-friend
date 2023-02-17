@@ -142,23 +142,18 @@
       "username": "usernine",
       "password": "nine",
       "id": 10
+    },
+    {
+      "username": "userel",
+      "password": "userel",
+      "id": 11
     }
   ],
   "profiles": [
     {
       "calorieGoal": 1000,
-      "calorieReached": 825,
+      "calorieReached": 725,
       "breakFast": [
-        {
-          "id": 3,
-          "name": "rice",
-          "image": "images/rice.jpg",
-          "quantity": 100,
-          "calorie": 100,
-          "cabohydrate": 22.2,
-          "protein": 2.2,
-          "fat": 0.3
-        },
         {
           "id": 8,
           "name": "chicken Tandoori",
@@ -328,6 +323,27 @@
       "eveningSnack": [],
       "dinner": [],
       "id": 10
+    },
+    {
+      "calorieGoal": 1000,
+      "calorieReached": 156,
+      "breakFast": [
+        {
+          "id": 1,
+          "name": "idli",
+          "image": "images/idli.jpg",
+          "quantity": 100,
+          "calorie": 156,
+          "cabohydrate": 30.2,
+          "protein": 5,
+          "fat": 1.7
+        }
+      ],
+      "morningSnack": [],
+      "lunch": [],
+      "eveningSnack": [],
+      "dinner": [],
+      "id": 11
     }
   ]
 }
