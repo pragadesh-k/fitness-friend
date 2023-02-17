@@ -3,6 +3,9 @@
 }
 
 /* Login page */
+.login-wrapper {
+  background-color: #f3f7f2;
+}
 .login-content {
   width: 400px;
 }
@@ -146,6 +149,14 @@
   text-decoration: none;
 }
 
+.logout-btn {
+  opacity: 0.7;
+}
+.logout-btn:hover {
+  opacity: 1;
+  text-decoration: transparent;
+  color: #ffffff;
+}
 /* MAIN */
 /* Health-calculator */
 

@@ -14,7 +14,7 @@ const sidenav = (props) => {
         style: { fill: "currentcolor", marginRight: ".5rem" },
       }}>
       <div id="sidenav" className="flex-column col-sm-3 col-lg-2 p-0">
-        <div id="sidenav-sticky">
+        <div id="sidenav-sticky" className="d-flex flex-column">
           <h6 id="side-heading" className="px-3 mt-3">
             Menu
           </h6>
@@ -38,7 +38,10 @@ const sidenav = (props) => {
               </NavLink>
             </NavItem>
           </Nav>
-          <Link to="/login" className="text-btn" onClick={() => props.logout()}>
+          <Link
+            to="/login"
+            className="text-btn mt-auto logout-btn"
+            onClick={() => props.logout()}>
             <BiLogOutCircle size="1.2rem" /> Logout
           </Link>
         </div>

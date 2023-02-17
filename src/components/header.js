@@ -11,12 +11,14 @@ const Header = (props) => {
         {/* <SiDeepnote color="#2cbf6a" /> Fitness Friend */}
       </NavbarBrand>
       <Col className="p-4 d-flex" id="right-face">
-        <div id="project-title" className="mx-auto">
-          <SiDeepnote
-            color="#2cbf6a"
-            style={{ marginRight: ".5rem", verticalAlign: "text-top" }}
-          />
-          <span>fitness friend</span>
+        <div id="project-title" className="mr-auto">
+          <img src="logo192.png" height="35px" />
+          <span className="ml-2" style={{ color: "#818181" }}>
+            fitness friend
+          </span>
+        </div>
+        <div>
+          <small className="text-muted">Logged in as: {props.username}</small>
         </div>
       </Col>
     </Navbar>

@@ -4,9 +4,9 @@
 
 :root {
   --primary-color: #2cbf6a;
-  --secondary-color: #0f0f2c;
-  --btn-hvr-secondary-color: #0f0f2c;
-  --btn-hvr-del-color: rgba(252, 10, 10, 0.6);
+  --secondary-color: #1c1c2b;
+  --btn-hvr-secondary-color: #23232c;
+  --btn-hvr-del-color: #ff8181;
 }
 
 html,

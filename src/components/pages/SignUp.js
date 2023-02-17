@@ -8,12 +8,10 @@ class SignUp extends React.Component {
     this.initialState = {
       username: "",
       password: "",
-      confirmPassword: "",
     };
     this.state = {
       username: "",
       password: "",
-      confirmPassword: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +32,7 @@ class SignUp extends React.Component {
     this.setState(this.initialState);
   }
   render() {
-    const { username, password, confirmPassword } = this.state;
+    const { username, password } = this.state;
     let info;
     if (this.props.isAccountCreated) {
       info = "Account created! Please login.";
@@ -60,7 +58,7 @@ class SignUp extends React.Component {
                       type="text"
                       className="auth-page-field form-control"
                       id="username"
-                      placeholder="Username"
+                      placeholder="name"
                       name="username"
                       value={username}
                       handleChange={this.handleChange}
@@ -74,17 +72,6 @@ class SignUp extends React.Component {
                       placeholder="Password"
                       name="password"
                       value={password}
-                      handleChange={this.handleChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <FormField
-                      type="password"
-                      className="auth-page-field form-control"
-                      id="confirm password"
-                      placeholder="Confirm Password"
-                      name="confirmPassword"
-                      value={confirmPassword}
                       handleChange={this.handleChange}
                     />
                   </div>

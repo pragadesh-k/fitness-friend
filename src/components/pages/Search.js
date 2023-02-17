@@ -9,15 +9,18 @@ import {
   ListGroup,
   ListGroupItem,
 } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
 import React, { Component } from "react";
-
+import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 class Search extends Component {
   inititalState = {
     searchitem: "",
   };
 
   state = this.inititalState;
+
+  componentWillUnmount() {
+    this.props.clearSearch();
+  }
 
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,6 +48,7 @@ class Search extends Component {
             searchResult={this.props.searchResult}
             handleMeal={this.props.handleMeal}
             userSelectedMealType={this.props.userSelectedMealType}
+            addItemStatus={this.props.addItemStatus}
           />
         </div>
       </Container>
@@ -80,6 +84,7 @@ const SearchResult = (props) => {
           searchResult={props.searchResult}
           handleMeal={props.handleMeal}
           userSelectedMealType={props.userSelectedMealType}
+          addItemStatus={props.addItemStatus}
         />
       </Row>
     </Container>
@@ -88,6 +93,16 @@ const SearchResult = (props) => {
 
 const SearchItems = (props) => {
   const items = props.searchResult.map((item, index) => {
+    let buttonLabel = "Add Item";
+    if (props.addItemStatus.id !== undefined && props.addItemStatus.isAdded) {
+      if (props.addItemStatus.id === item.id) {
+        buttonLabel = (
+          <>
+            <IoCheckmarkDoneCircleOutline size="1.5rem" /> Item added
+          </>
+        );
+      }
+    }
     return (
       <Card style={style.card}>
         <Card.Img
@@ -125,11 +140,8 @@ const SearchItems = (props) => {
               onClick={() =>
                 props.handleMeal(item.id, props.userSelectedMealType)
               }>
-              Add Item
+              {buttonLabel}
             </Button>
-            <small className="align-self-center mt-1 text-muted">
-              Item added
-            </small>
           </div>
         </Card.Body>
       </Card>

@@ -20,6 +20,7 @@ class Tracker extends Component {
           <CalorieBucket
             calorieReached={this.props.calorieReached}
             calorieGoal={this.props.calorieGoal}
+            resetTracker={this.props.resetTracker}
           />
           <FoodTracker
             breakFast={this.props.breakFast}
@@ -102,10 +103,24 @@ class CalorieForm extends Component {
 
 const CalorieBucket = (props) => {
   return (
-    <div className="calorie-bucket title" style={style.calorieBucket}>
-      <span>Today's Calorie :</span> {props.calorieReached} /{" "}
-      {props.calorieGoal} KCAL
-    </div>
+    <>
+      <div className="calorie-bucket title" style={style.calorieBucket}>
+        <div className="d-flex">
+          <span>Today's Calorie :</span> {props.calorieReached} /{" "}
+          {props.calorieGoal} KCAL
+          <button className="stroke-btn d-inline-block ml-auto">
+            <small onClick={() => props.resetTracker()}>Reset</small>
+          </button>
+        </div>
+      </div>
+      {props.calorieReached >= props.calorieGoal ? (
+        <p className="mb-0">
+          <small className="text-muted">
+            You reached your today's target. Congrats!
+          </small>
+        </p>
+      ) : null}
+    </>
   );
 };
 

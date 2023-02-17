@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, Link } from "react-router-dom";
 
-class LoginPage extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -111,6 +111,7 @@ export function FormField(props) {
       name={props.name}
       value={props.value}
       onChange={props.handleChange}
+      required={true}
     />
   );
 }
@@ -145,4 +146,4 @@ export function Info(props) {
   }
 }
 
-export default LoginPage;
+export default Login;

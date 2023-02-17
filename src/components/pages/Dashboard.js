@@ -8,7 +8,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        <Header username={this.props.currUser.username} />
         <Container fluid>
           <Row>
             <SideNav logout={this.props.logout} />

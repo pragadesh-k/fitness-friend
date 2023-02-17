@@ -112,32 +112,62 @@
       "username": "user4",
       "password": "user4",
       "id": 4
+    },
+    {
+      "username": "user5",
+      "password": "user5",
+      "id": 5
+    },
+    {
+      "username": "user-seven",
+      "password": "abcdefgh",
+      "id": 6
+    },
+    {
+      "username": "John",
+      "password": "dummyPassword",
+      "id": 7
+    },
+    {
+      "username": "Anthony",
+      "password": "Dummy@123",
+      "id": 8
+    },
+    {
+      "username": "usereight",
+      "password": "eight",
+      "id": 9
+    },
+    {
+      "username": "usernine",
+      "password": "nine",
+      "id": 10
     }
   ],
   "profiles": [
     {
-      "calorieGoal": 2073,
-      "calorieReached": 349,
+      "calorieGoal": 1000,
+      "calorieReached": 258,
       "breakFast": [
         {
-          "id": 4,
-          "name": "dosa",
-          "image": "images/dosa.jpg",
+          "id": 3,
+          "name": "rice",
+          "image": "images/rice.jpg",
           "quantity": 100,
-          "calorie": 193,
-          "cabohydrate": 27.1,
-          "protein": 5.5,
-          "fat": 7.4
+          "calorie": 100,
+          "cabohydrate": 22.2,
+          "protein": 2.2,
+          "fat": 0.3
         },
         {
-          "id": 1,
-          "name": "idli",
-          "image": "images/idli.jpg",
+          "id": 8,
+          "name": "chicken Tandoori",
+          "image": "images/chicken.jpg",
           "quantity": 100,
-          "calorie": 156,
-          "cabohydrate": 30.2,
-          "protein": 5,
-          "fat": 1.7
+          "calorie": 158,
+          "cabohydrate": 1.4,
+          "protein": 19.2,
+          "fat": 8
         }
       ],
       "morningSnack": [],
@@ -175,6 +205,88 @@
       "eveningSnack": [],
       "dinner": [],
       "id": 4
+    },
+    {
+      "calorieGoal": 1000,
+      "calorieReached": 100,
+      "breakFast": [
+        {
+          "id": 3,
+          "name": "rice",
+          "image": "images/rice.jpg",
+          "quantity": 100,
+          "calorie": 100,
+          "cabohydrate": 22.2,
+          "protein": 2.2,
+          "fat": 0.3
+        }
+      ],
+      "morningSnack": [],
+      "lunch": [],
+      "eveningSnack": [],
+      "dinner": [],
+      "id": 5
+    },
+    {
+      "calorieGoal": 2073,
+      "calorieReached": 193,
+      "breakFast": [
+        {
+          "id": 4,
+          "name": "dosa",
+          "image": "images/dosa.jpg",
+          "quantity": 100,
+          "calorie": 193,
+          "cabohydrate": 27.1,
+          "protein": 5.5,
+          "fat": 7.4
+        }
+      ],
+      "morningSnack": [],
+      "lunch": [],
+      "eveningSnack": [],
+      "dinner": [],
+      "id": 6
+    },
+    {
+      "calorieGoal": 2000,
+      "calorieReached": 0,
+      "breakFast": [],
+      "morningSnack": [],
+      "lunch": [],
+      "eveningSnack": [],
+      "dinner": [],
+      "id": 7
+    },
+    {
+      "calorieGoal": 0,
+      "calorieReached": 0,
+      "breakFast": [],
+      "morningSnack": [],
+      "lunch": [],
+      "eveningSnack": [],
+      "dinner": [],
+      "id": 8
+    },
+    {
+      "calorieGoal": 0,
+      "calorieReached": 0,
+      "breakFast": [],
+      "morningSnack": [],
+      "lunch": [],
+      "eveningSnack": [],
+      "dinner": [],
+      "id": 9
+    },
+    {
+      "calorieGoal": 0,
+      "calorieReached": 0,
+      "breakFast": [],
+      "morningSnack": [],
+      "lunch": [],
+      "eveningSnack": [],
+      "dinner": [],
+      "id": 10
     }
   ]
 }

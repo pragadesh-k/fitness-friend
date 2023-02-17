@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import data from "./data.json";
 
 // import { Container, Row } from "react-bootstrap";
-import LoginPage from "./components/pages/Login";
+import Login from "./components/pages/Login";
 import Dashboard from "./components/pages/Dashboard";
 import { Routes, Route, Redirect, Navigate } from "react-router-dom";
 import Tracker from "./components/pages/Tracker";
@@ -32,6 +32,7 @@ class App extends Component {
     currUserProfile: {},
     isLoggedIn: false,
     isAccountCreated: undefined,
+    addItemStatus: { id: undefined, isAdded: false },
   };
   state = this.initialState;
 
@@ -41,7 +42,8 @@ class App extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ data: data });
-      });
+      })
+      .catch((err) => console.log(err));
   }
 
   componentDidUpdate() {
@@ -51,6 +53,12 @@ class App extends Component {
 
     if (this.state.isAccountCreated !== undefined) {
       setTimeout(() => this.setState({ isAccountCreated: undefined }), 3000);
+    }
+    if (this.state.addItemStatus.id !== undefined) {
+      setTimeout(
+        () => this.setState({ addItemStatus: this.initialState.addItemStatus }),
+        1500
+      );
     }
   }
 
@@ -63,14 +71,14 @@ class App extends Component {
           this.setState({ isAuthSuccess: false });
         } else {
           user = users[0];
+          // Validate user
           if (user.username === username && user.password === password) {
-            // update state with authSuccess with true
-            fetch(`${this.state.baseUrl}/profiles/${user.id}`)
-              .then((res) => res.json())
+            // update user PROFILE
+            this.retrieveProfile(user.id)
               .then((profile) => {
                 this.setState({
-                  isLoggedIn: true,
-                  isAuthSuccess: true,
+                  isLoggedIn: true, // set login status
+                  isAuthSuccess: true, // set auth status
                   currUser: user,
                   caloriegoal: profile.calorieGoal,
                   caloriereached: profile.calorieReached,
@@ -80,11 +88,26 @@ class App extends Component {
                   eveningsnack: profile.eveningSnack,
                   dinner: profile.dinner,
                 });
-              });
-            console.log("navigate to dashboard");
+              })
+              .catch((err) => console.log(err));
+          } else {
+            this.setState({ isAuthSuccess: false });
           }
         }
-      });
+      })
+      .catch((err) => console.log(err));
+  };
+
+  retrieveProfile = async (id) => {
+    try {
+      const profileResponse = await fetch(
+        `${this.state.baseUrl}/profiles/${id}`
+      );
+      const profileData = await profileResponse.json();
+      return profileData;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   logout = () => {
@@ -105,7 +128,8 @@ class App extends Component {
       },
     })
       .then((res) => res.json())
-      .then((profile) => console.log(profile));
+      .then((profile) => console.log(profile))
+      .catch((err) => console.log(err));
     this.setState(this.initialState);
   };
 
@@ -134,7 +158,8 @@ class App extends Component {
         } else {
           this.setState({ isAccountCreated: false });
         }
-      });
+      })
+      .catch((err) => console.log(err));
     // if not, create a new user and return true
     // else return false
   };
@@ -156,17 +181,33 @@ class App extends Component {
       },
     })
       .then((res) => res.json())
-      .then((profile) => console.log(profile));
+      .then((profile) => console.log(profile))
+      .catch((err) => console.log(err));
+  };
+
+  retrieveFoodItems = async (searchItem) => {
+    try {
+      const foodItemsResponse = await fetch(
+        `${this.state.baseUrl}/food-items?q=${searchItem}`
+      );
+      const foodData = await foodItemsResponse.json();
+      return foodData;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // Funtion to handle the food search
   handleSearch = (searchItem) => {
-    // Filter food items data for the "search item"
-    const result = this.state.data.filter((item, index) => {
-      return item.name.includes(searchItem);
-    });
-    // update state with the item found
-    this.setState({ searchresult: result });
+    this.retrieveFoodItems(searchItem)
+      .then((foodItems) => {
+        // update state with the item found
+        this.setState({ searchresult: foodItems });
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({ searchresult: [] });
+      });
   };
 
   handleMeal = (id, mealtype) => {
@@ -179,6 +220,7 @@ class App extends Component {
       [mealtype]: [...this.state[mealtype], selectedItem[0]],
 
       caloriereached: caloriereached + selectedItem[0].calorie,
+      addItemStatus: { id: selectedItem[0].id, isAdded: true },
     });
   };
 
@@ -203,6 +245,21 @@ class App extends Component {
     this.setState({ caloriegoal: caloriegoal });
   };
 
+  resetTracker = () => {
+    let isReset = window.confirm("Are you sure you want to reset?");
+    if (isReset) {
+      this.setState({
+        caloriereached: this.initialState.caloriereached,
+        caloriegoal: this.initialState.caloriegoal,
+        breakfast: this.initialState.breakfast,
+        morningsnack: this.initialState.morningsnack,
+        lunch: this.initialState.lunch,
+        eveningsnack: this.initialState.eveningsnack,
+        dinner: this.initialState.dinner,
+      });
+    }
+  };
+
   render() {
     const {
       caloriereached,
@@ -217,6 +274,8 @@ class App extends Component {
       isAuthSuccess,
       isLoggedIn,
       isAccountCreated,
+      currUser,
+      addItemStatus,
     } = this.state;
     const logo = <img src="logo192.png" height="80px" />;
     const appName = (
@@ -232,7 +291,7 @@ class App extends Component {
           <Route
             path="login"
             element={
-              <LoginPage
+              <Login
                 logo={logo}
                 appName={appName}
                 authenticate={this.authenticate}
@@ -251,7 +310,9 @@ class App extends Component {
                 createUser={this.createUser}
               />
             }></Route>
-          <Route path="dashboard" element={<Dashboard logout={this.logout} />}>
+          <Route
+            path="dashboard"
+            element={<Dashboard logout={this.logout} currUser={currUser} />}>
             <Route
               path="tracker"
               element={
@@ -266,6 +327,7 @@ class App extends Component {
                   handleMealType={this.handleMealType}
                   handleDelete={this.handleDelete}
                   setCalorieGoal={this.setCalorieGoal}
+                  resetTracker={this.resetTracker}
                 />
               }></Route>
             <Route
@@ -281,6 +343,8 @@ class App extends Component {
                   handleSearch={this.handleSearch}
                   handleMeal={this.handleMeal}
                   userSelectedMealType={userselectedmealtype}
+                  clearSearch={() => this.setState({ searchresult: [] })}
+                  addItemStatus={addItemStatus}
                 />
               }></Route>
           </Route>
